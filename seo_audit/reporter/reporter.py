@@ -82,7 +82,7 @@ class ReportGenerator:
                 sev.value: {
                     "name": self._severity_name(sev),
                     "count": len(issues),
-                    "issues": issues,
+                    "issues": [self._issue_item_to_dict(i) for i in issues],
                 }
                 for sev, issues in issues_by_severity.items()
             },
@@ -90,7 +90,7 @@ class ReportGenerator:
                 cat.value: {
                     "name": CATEGORY_NAMES.get(cat, cat.value),
                     "count": len(issues),
-                    "issues": issues,
+                    "issues": [self._issue_item_to_dict(i) for i in issues],
                 }
                 for cat, issues in issues_by_category.items()
             },
@@ -143,6 +143,18 @@ class ReportGenerator:
                 for r in sorted_results
                 if not r.executed
             ],
+        }
+
+    def _issue_item_to_dict(self, issue: IssueItem) -> dict:
+        return {
+            "rule_id": issue.rule_id,
+            "rule_name": issue.rule_name,
+            "category": issue.category.value if hasattr(issue.category, "value") else str(issue.category),
+            "severity": issue.severity.value if hasattr(issue.severity, "value") else str(issue.severity),
+            "message": issue.message,
+            "fix_advice": issue.fix_advice,
+            "affected_pages": issue.affected_pages,
+            "details": issue.details,
         }
 
     def _rule_result_to_dict(self, result: RuleResult) -> dict:

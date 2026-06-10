@@ -3,12 +3,12 @@ from typing import Dict, List, Optional
 from collections import defaultdict
 from dataclasses import dataclass, field
 
-from ..crawler import Crawler, PageData
-from ..auditor import Auditor, SiteAuditResult
-from ..reporter import ReportGenerator
-from ..benchmark import Benchmark, Industry
-from ..config import settings
-from ..utils import extract_domain, normalize_url
+from .crawler import Crawler, PageData
+from .auditor import Auditor, SiteAuditResult
+from .reporter import ReportGenerator
+from .benchmark import Benchmark, Industry
+from .config import settings
+from .utils import extract_domain, normalize_url
 
 
 @dataclass

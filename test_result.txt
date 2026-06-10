@@ -1,0 +1,60 @@
+=== 测试导入 ===
+✓ config 导入成功
+  PORT=8000, CACHE_TTL=86400
+✓ crawler 导入成功
+✓ auditor 导入成功
+  规则总数: 72
+  分类: ['crawl_index', 'tdk', 'content_quality', 'technical_seo', 'performance', 'mobile', 'structured_data']
+✓ reporter 导入成功
+✓ benchmark 导入成功
+  行业数: 9
+✓ service 导入成功
+  缓存统计: {'page_cache_size': 0, 'report_cache_size': 0, 'history_entries': 0}
+  规则信息: {'total_rules': 72, 'enabled_rules': 72, 'by_category': {'content_quality': 11, 'crawl_index': 12, 'mobile': 8, 'performance': 8, 'structured_data': 9, 'tdk': 10, 'technical_seo': 14}, 'by_severity': {'important': 29, 'info': 33, 'critical': 10}}
+✓ FastAPI app 创建成功
+  路由数: 19
+
+=== 测试模拟页面审计 ===
+✓ 页面解析成功
+  Title: 测试页面 - Example
+  字数: 60
+  H1: ['欢迎来到 Example']
+  内链: 1, 外链: 1
+  图片: 1
+
+✓ 单页审计完成
+  得分: 75.2/100
+  总规则: 72
+  通过: 50, 失败: 22, 跳过: 0
+  致命: 1, 重要: 7, 一般: 14
+
+  失败的规则:
+    - [important] 正文内容不少于 300 字: 页面正文只有 60 字
+    - [info] 关键词密度合理（2%-8%）: 主要关键词密度约 26.7%，可能有堆砌嫌疑
+    - [info] H2 标题结构: 页面缺少 H2 副标题
+    - [critical] robots.txt 文件存在: 网站未找到 robots.txt 文件
+    - [important] Sitemap 存在: 网站未配置 sitemap.xml
+    - [info] robots.txt 声明 Sitemap: robots.txt 中未声明 sitemap 位置
+    - [important] 响应式 CSS: 未检测到响应式设计特征
+    - [info] Apple Touch Icon: 缺少 Apple Touch Icon
+    - [info] 移动端主题色: 缺少移动端 theme-color 配置
+    - [important] JSON-LD 结构化数据: 页面没有 JSON-LD 结构化数据
+    - [info] Open Graph 标签: 缺少 4 个必要 OG 标签：og:title, og:description, og:image, og:url
+    - [info] Twitter Card 标签: 页面没有 Twitter Card 标签
+    - [info] 站点级结构化数据: 建议添加 Organization 或 Website 结构化数据
+    - [info] FAQ 结构化数据: 如适用可添加 FAQ 结构化数据以获得富结果展示
+    - [info] 富结果展示资格: 无结构化数据，无法获得富结果展示
+    - [important] Title 长度合理（30-60 字符）: Title 只有 14 字符，偏短
+    - [info] Description 长度合理（70-160 字符）: Description 只有 27 字符，偏短
+    - [important] HSTS 安全头: 网站未配置 HSTS 响应头
+    - [info] 面包屑导航: 页面缺少面包屑导航
+    - [info] X-Frame-Options 安全头: 网站未配置 X-Frame-Options 头
+    - [important] Gzip 压缩启用: 网站未启用 Gzip/Brotli 压缩
+    - [info] 缓存头配置: 网站缺少缓存相关响应头
+
+  未执行的规则:
+    (无)
+
+✓ Markdown 报告生成成功，长度: 2430 字符
+
+=== 所有测试完成 ===
