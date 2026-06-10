@@ -1,0 +1,134 @@
+[
+  {
+    "id": "robots_txt_exists",
+    "name": "robots.txt 文件存在",
+    "category": "crawl_index",
+    "severity": "critical",
+    "weight": "high",
+    "description": "检查网站是否存在 robots.txt 文件",
+    "fix_advice": "在网站根目录创建 robots.txt 文件，用于指导搜索引擎爬虫抓取",
+    "check_function": "check_robots_txt_exists",
+    "enabled": true
+  },
+  {
+    "id": "sitemap_exists",
+    "name": "Sitemap 存在",
+    "category": "crawl_index",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查网站是否配置 sitemap.xml",
+    "fix_advice": "创建 sitemap.xml 文件并提交到搜索引擎站长平台",
+    "check_function": "check_sitemap_exists",
+    "enabled": true
+  },
+  {
+    "id": "404_status",
+    "name": "404 页面状态码正确",
+    "category": "crawl_index",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查 404 页面是否返回正确的 404 状态码",
+    "fix_advice": "配置服务器对不存在的页面返回 404 状态码",
+    "check_function": "check_404_status",
+    "enabled": true
+  },
+  {
+    "id": "5xx_errors",
+    "name": "5xx 服务器错误",
+    "category": "crawl_index",
+    "severity": "critical",
+    "weight": "high",
+    "description": "检查是否存在 5xx 服务器错误",
+    "fix_advice": "检查服务器日志，修复服务端错误",
+    "check_function": "check_5xx_errors",
+    "enabled": true
+  },
+  {
+    "id": "redirect_chain",
+    "name": "重定向链不超过 3 跳",
+    "category": "crawl_index",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查重定向链是否超过 3 跳",
+    "fix_advice": "缩短重定向链，直接跳转到最终页面以避免权重流失",
+    "check_function": "check_redirect_chain",
+    "enabled": true
+  },
+  {
+    "id": "orphan_pages",
+    "name": "孤立页面检测",
+    "category": "crawl_index",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检测没有任何内链指向的孤立页面",
+    "fix_advice": "为孤立页面添加内部链接，或通过 sitemap 提交确保收录",
+    "check_function": "check_orphan_pages",
+    "enabled": true
+  },
+  {
+    "id": "meta_robots_index",
+    "name": "页面允许索引",
+    "category": "crawl_index",
+    "severity": "critical",
+    "weight": "high",
+    "description": "检查页面 meta robots 是否设置了 noindex",
+    "fix_advice": "如果需要收录，请移除 meta robots 中的 noindex 指令",
+    "check_function": "check_meta_robots_index",
+    "enabled": true
+  },
+  {
+    "id": "robots_blocked",
+    "name": "robots.txt 未屏蔽页面",
+    "category": "crawl_index",
+    "severity": "critical",
+    "weight": "high",
+    "description": "检查页面是否被 robots.txt 屏蔽",
+    "fix_advice": "检查 robots.txt 规则，确保重要页面可被抓取",
+    "check_function": "check_robots_blocked",
+    "enabled": true
+  },
+  {
+    "id": "http_status_ok",
+    "name": "HTTP 状态码正常",
+    "category": "crawl_index",
+    "severity": "critical",
+    "weight": "high",
+    "description": "检查页面是否返回 2xx 状态码",
+    "fix_advice": "确保页面返回正常的 200 状态码",
+    "check_function": "check_http_status_ok",
+    "enabled": true
+  },
+  {
+    "id": "page_indexable",
+    "name": "页面可被收录",
+    "category": "crawl_index",
+    "severity": "critical",
+    "weight": "high",
+    "description": "综合检查页面是否可被搜索引擎收录",
+    "fix_advice": "修复影响收录的问题，包括状态码、noindex、robots 屏蔽等",
+    "check_function": "check_indexable",
+    "enabled": true
+  },
+  {
+    "id": "xml_sitemap_valid",
+    "name": "Sitemap 格式有效",
+    "category": "crawl_index",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查 sitemap.xml 格式是否正确",
+    "fix_advice": "确保 sitemap.xml 遵循 XML 格式规范，URL 列表完整",
+    "check_function": "check_xml_sitemap_valid",
+    "enabled": true
+  },
+  {
+    "id": "sitemap_in_robots",
+    "name": "robots.txt 声明 Sitemap",
+    "category": "crawl_index",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查 robots.txt 中是否声明了 sitemap 位置",
+    "fix_advice": "在 robots.txt 末尾添加 Sitemap: 指向 sitemap.xml 的完整 URL",
+    "check_function": "check_sitemap_in_robots",
+    "enabled": true
+  }
+]

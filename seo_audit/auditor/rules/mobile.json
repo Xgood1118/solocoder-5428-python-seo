@@ -1,0 +1,90 @@
+[
+  {
+    "id": "viewport_meta",
+    "name": "Viewport Meta 标签",
+    "category": "mobile",
+    "severity": "critical",
+    "weight": "high",
+    "description": "检查是否设置了 viewport meta 标签",
+    "fix_advice": "添加 <meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+    "check_function": "check_viewport",
+    "enabled": true
+  },
+  {
+    "id": "responsive_css",
+    "name": "响应式 CSS",
+    "category": "mobile",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查是否使用响应式设计",
+    "fix_advice": "使用响应式布局，确保网站在移动设备上有良好的显示效果",
+    "check_function": "check_responsive_css",
+    "enabled": true
+  },
+  {
+    "id": "font_size",
+    "name": "字体大小不小于 12px",
+    "category": "mobile",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查是否有字体小于 12px",
+    "fix_advice": "正文字体建议不小于 12px，移动端不小于 14px 以确保可读性",
+    "check_function": "check_font_size",
+    "enabled": true
+  },
+  {
+    "id": "tap_targets",
+    "name": "可点击元素间距",
+    "category": "mobile",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查可点击元素是否有足够间距防误触",
+    "fix_advice": "确保可点击元素至少 48x48px，间距足够避免误触",
+    "check_function": "check_tap_targets",
+    "enabled": true
+  },
+  {
+    "id": "mobile_lighthouse_score",
+    "name": "移动端 Lighthouse 评分",
+    "category": "mobile",
+    "severity": "info",
+    "weight": "medium",
+    "description": "移动端 Lighthouse 评分",
+    "fix_advice": "优化移动端体验，参考 Lighthouse 移动端建议",
+    "check_function": "check_mobile_lighthouse_score",
+    "enabled": true
+  },
+  {
+    "id": "popup_avoid",
+    "name": "无侵入式弹窗",
+    "category": "mobile",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查是否存在影响移动端体验的侵入式弹窗",
+    "fix_advice": "避免使用影响移动端用户体验的全屏弹窗，改用不干扰的提示方式",
+    "check_function": "check_popup_avoid",
+    "enabled": true
+  },
+  {
+    "id": "touch_icon",
+    "name": "Apple Touch Icon",
+    "category": "mobile",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查是否配置了 Apple Touch Icon",
+    "fix_advice": "添加 apple-touch-icon 链接，提升添加到主屏幕的体验",
+    "check_function": "check_touch_icon",
+    "enabled": true
+  },
+  {
+    "id": "theme_color",
+    "name": "移动端主题色",
+    "category": "mobile",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查是否配置了移动端 theme-color",
+    "fix_advice": "添加 theme-color meta 标签，定制移动端浏览器地址栏颜色",
+    "check_function": "check_theme_color",
+    "enabled": true
+  }
+]

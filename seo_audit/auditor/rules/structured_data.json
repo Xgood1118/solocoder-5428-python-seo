@@ -1,0 +1,101 @@
+[
+  {
+    "id": "json_ld_present",
+    "name": "JSON-LD 结构化数据",
+    "category": "structured_data",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查是否有 JSON-LD 结构化数据",
+    "fix_advice": "添加合适的 Schema.org 结构化数据，帮助搜索引擎理解页面内容",
+    "check_function": "check_json_ld",
+    "enabled": true
+  },
+  {
+    "id": "schema_valid",
+    "name": "Schema 结构有效",
+    "category": "structured_data",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查 Schema 结构是否完整有效",
+    "fix_advice": "修复结构化数据格式，确保包含 @type 和必要属性",
+    "check_function": "check_schema_valid",
+    "enabled": true
+  },
+  {
+    "id": "og_tags",
+    "name": "Open Graph 标签",
+    "category": "structured_data",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查 Open Graph 标签是否完整",
+    "fix_advice": "完善 Open Graph 标签，提升社交分享展示效果",
+    "check_function": "check_og_tags",
+    "enabled": true
+  },
+  {
+    "id": "twitter_card",
+    "name": "Twitter Card 标签",
+    "category": "structured_data",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查 Twitter Card 标签",
+    "fix_advice": "添加 Twitter Card 标签，优化在 Twitter 上的分享展示",
+    "check_function": "check_twitter_card",
+    "enabled": true
+  },
+  {
+    "id": "breadcrumb_schema",
+    "name": "面包屑 Schema 标记",
+    "category": "structured_data",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查面包屑导航是否有 Schema 标记",
+    "fix_advice": "为面包屑导航添加 BreadcrumbList Schema 标记",
+    "check_function": "check_breadcrumb_schema",
+    "enabled": true
+  },
+  {
+    "id": "article_schema",
+    "name": "文章类型 Schema",
+    "category": "structured_data",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查文章类页面是否有 Article Schema",
+    "fix_advice": "如果是文章类页面，添加 Article 类型 Schema 可获得更好的展示",
+    "check_function": "check_article_schema",
+    "enabled": true
+  },
+  {
+    "id": "org_schema",
+    "name": "站点级结构化数据",
+    "category": "structured_data",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查是否有 Organization 或 Website 结构化数据",
+    "fix_advice": "添加 Organization 或 Website 类型结构化数据，提升站点可信度",
+    "check_function": "check_org_schema",
+    "enabled": true
+  },
+  {
+    "id": "faq_schema",
+    "name": "FAQ 结构化数据",
+    "category": "structured_data",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查是否有 FAQ 结构化数据",
+    "fix_advice": "如适用可添加 FAQ 结构化数据以获得富结果展示",
+    "check_function": "check_faq_schema",
+    "enabled": true
+  },
+  {
+    "id": "rich_results_eligibility",
+    "name": "富结果展示资格",
+    "category": "structured_data",
+    "severity": "info",
+    "weight": "medium",
+    "description": "检查是否有支持富结果展示的 Schema 类型",
+    "fix_advice": "添加合适的结构化数据类型，争取在搜索结果中获得富结果展示",
+    "check_function": "check_rich_results_eligibility",
+    "enabled": true
+  }
+]

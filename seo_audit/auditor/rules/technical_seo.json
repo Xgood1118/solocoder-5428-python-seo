@@ -1,0 +1,156 @@
+[
+  {
+    "id": "https_enabled",
+    "name": "HTTPS 加密",
+    "category": "technical_seo",
+    "severity": "critical",
+    "weight": "high",
+    "description": "检查网站是否启用 HTTPS",
+    "fix_advice": "安装 SSL 证书，启用 HTTPS 以提升安全性和搜索排名",
+    "check_function": "check_https",
+    "enabled": true
+  },
+  {
+    "id": "hsts_enabled",
+    "name": "HSTS 安全头",
+    "category": "technical_seo",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查是否配置 HSTS 响应头",
+    "fix_advice": "添加 Strict-Transport-Security 响应头，强制浏览器使用 HTTPS 访问",
+    "check_function": "check_hsts",
+    "enabled": true
+  },
+  {
+    "id": "http_https_redirect",
+    "name": "HTTP 自动跳转到 HTTPS",
+    "category": "technical_seo",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查 HTTP 请求是否 301 跳转到 HTTPS",
+    "fix_advice": "配置服务器将 HTTP 请求 301 重定向到 HTTPS 版本",
+    "check_function": "check_http_to_https_redirect",
+    "enabled": true
+  },
+  {
+    "id": "canonical_tag",
+    "name": "Canonical 标签规范",
+    "category": "technical_seo",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查 canonical 标签是否规范",
+    "fix_advice": "添加 canonical 标签指向页面首选 URL，避免重复内容问题",
+    "check_function": "check_canonical",
+    "enabled": true
+  },
+  {
+    "id": "canonical_loop",
+    "name": "Canonical 无循环",
+    "category": "technical_seo",
+    "severity": "critical",
+    "weight": "high",
+    "description": "检查 canonical 是否形成循环指向",
+    "fix_advice": "修复 canonical 链接指向，确保最终指向权威页面",
+    "check_function": "check_canonical",
+    "enabled": true
+  },
+  {
+    "id": "hreflang_tags",
+    "name": "Hreflang 多语言标签",
+    "category": "technical_seo",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查是否有 hreflang 多语言标签",
+    "fix_advice": "如果是多语言站点，建议添加 hreflang 标签指定语言版本",
+    "check_function": "check_hreflang",
+    "enabled": true
+  },
+  {
+    "id": "breadcrumb",
+    "name": "面包屑导航",
+    "category": "technical_seo",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查是否有面包屑导航",
+    "fix_advice": "添加面包屑导航，提升用户体验和搜索引擎理解页面结构",
+    "check_function": "check_breadcrumb",
+    "enabled": true
+  },
+  {
+    "id": "url_static",
+    "name": "URL 静态化",
+    "category": "technical_seo",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查 URL 是否静态化",
+    "fix_advice": "使用 URL 重写将动态参数转为静态路径，提升 URL 可读性",
+    "check_function": "check_url_static",
+    "enabled": true
+  },
+  {
+    "id": "x_frame_options",
+    "name": "X-Frame-Options 安全头",
+    "category": "technical_seo",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查是否配置 X-Frame-Options 安全头",
+    "fix_advice": "添加 X-Frame-Options 头可防止点击劫持攻击",
+    "check_function": "check_x_frame_options",
+    "enabled": true
+  },
+  {
+    "id": "gzip_compression",
+    "name": "Gzip 压缩启用",
+    "category": "technical_seo",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查是否启用 Gzip 内容压缩",
+    "fix_advice": "在服务器上启用 Gzip 或 Brotli 压缩，减小传输体积",
+    "check_function": "check_gzip_compression",
+    "enabled": true
+  },
+  {
+    "id": "caching_headers",
+    "name": "缓存头配置",
+    "category": "technical_seo",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查是否配置了缓存相关响应头",
+    "fix_advice": "配置 Cache-Control、ETag、Last-Modified 等缓存头，提升加载速度",
+    "check_function": "check_caching_headers",
+    "enabled": true
+  },
+  {
+    "id": "meta_viewport",
+    "name": "Viewport 配置",
+    "category": "technical_seo",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查是否配置了 viewport meta 标签",
+    "fix_advice": "添加 viewport meta 标签确保移动端正确显示",
+    "check_function": "check_meta_viewport",
+    "enabled": true
+  },
+  {
+    "id": "doctype",
+    "name": "DOCTYPE 声明",
+    "category": "technical_seo",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查是否有正确的 HTML5 DOCTYPE 声明",
+    "fix_advice": "在文档开头添加 <!DOCTYPE html> 声明",
+    "check_function": "check_doctype",
+    "enabled": true
+  },
+  {
+    "id": "lang_attr",
+    "name": "HTML lang 属性",
+    "category": "technical_seo",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查 html 标签是否有 lang 属性",
+    "fix_advice": "在 html 标签上添加 lang 属性指定页面语言",
+    "check_function": "check_lang_attr",
+    "enabled": true
+  }
+]

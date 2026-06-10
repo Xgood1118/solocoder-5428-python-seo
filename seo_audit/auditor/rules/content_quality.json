@@ -1,0 +1,123 @@
+[
+  {
+    "id": "low_word_count",
+    "name": "正文内容不少于 300 字",
+    "category": "content_quality",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查页面正文字数是否少于 300 字",
+    "fix_advice": "丰富页面内容，提供有价值的信息，建议正文字数不少于 300 字",
+    "check_function": "check_word_count",
+    "enabled": true
+  },
+  {
+    "id": "h1_missing",
+    "name": "H1 标签存在",
+    "category": "content_quality",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查页面是否有 H1 标签",
+    "fix_advice": "为每个页面添加一个 H1 标签，概括页面主题",
+    "check_function": "check_h1_exists",
+    "enabled": true
+  },
+  {
+    "id": "multiple_h1",
+    "name": "页面唯一 H1",
+    "category": "content_quality",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查页面是否有多个 H1 标签",
+    "fix_advice": "每个页面只保留一个 H1 标签，突出页面主题",
+    "check_function": "check_h1_exists",
+    "enabled": true
+  },
+  {
+    "id": "keyword_density",
+    "name": "关键词密度合理（2%-8%）",
+    "category": "content_quality",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查主要关键词密度是否在 2%-8% 之间",
+    "fix_advice": "保持关键词密度在合理范围，避免堆砌或不足",
+    "check_function": "check_keyword_density",
+    "enabled": true
+  },
+  {
+    "id": "image_alt",
+    "name": "图片 Alt 属性完整",
+    "category": "content_quality",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查图片 alt 属性缺失比例",
+    "fix_advice": "为图片添加描述性的 alt 属性，帮助搜索引擎理解图片内容",
+    "check_function": "check_image_alt",
+    "enabled": true
+  },
+  {
+    "id": "internal_links",
+    "name": "内链数量充足",
+    "category": "content_quality",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查页面内部链接数量",
+    "fix_advice": "在页面内容中添加相关的内部链接，提升站内导航体验",
+    "check_function": "check_internal_links",
+    "enabled": true
+  },
+  {
+    "id": "external_links",
+    "name": "外链数量",
+    "category": "content_quality",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查页面外部链接数量",
+    "fix_advice": "适量添加权威外部链接可提升页面可信度",
+    "check_function": "check_external_links",
+    "enabled": true
+  },
+  {
+    "id": "h2_structure",
+    "name": "H2 标题结构",
+    "category": "content_quality",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查页面是否有 H2 副标题结构",
+    "fix_advice": "使用 H2 标签组织内容段落结构，提升可读性",
+    "check_function": "check_h2_structure",
+    "enabled": true
+  },
+  {
+    "id": "content_unique",
+    "name": "内容原创性",
+    "category": "content_quality",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查是否与站内其他页面内容重复",
+    "fix_advice": "确保每个页面内容独特，避免重复内容问题",
+    "check_function": "check_content_unique",
+    "enabled": true
+  },
+  {
+    "id": "paragraph_structure",
+    "name": "段落结构合理",
+    "category": "content_quality",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查页面段落结构是否合理",
+    "fix_advice": "使用多个段落组织内容，适当使用列表增强可读性",
+    "check_function": "check_paragraph_structure",
+    "enabled": true
+  },
+  {
+    "id": "bold_keywords",
+    "name": "关键词加粗强调",
+    "category": "content_quality",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查关键词是否使用加粗或 strong 标签强调",
+    "fix_advice": "适当使用加粗标签强调关键词，但不要过度",
+    "check_function": "check_bold_keywords",
+    "enabled": true
+  }
+]

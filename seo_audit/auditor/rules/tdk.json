@@ -1,0 +1,112 @@
+[
+  {
+    "id": "title_missing",
+    "name": "Title 标签存在",
+    "category": "tdk",
+    "severity": "critical",
+    "weight": "high",
+    "description": "检查页面是否有 title 标签",
+    "fix_advice": "为页面添加唯一且描述性的 title 标签，长度建议 30-60 字符",
+    "check_function": "check_title_exists",
+    "enabled": true
+  },
+  {
+    "id": "title_duplicate",
+    "name": "Title 不重复",
+    "category": "tdk",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查不同页面是否有重复的 title",
+    "fix_advice": "确保每个页面的 title 唯一，体现页面差异化内容",
+    "check_function": "check_title_exists",
+    "enabled": true
+  },
+  {
+    "id": "title_length",
+    "name": "Title 长度合理（30-60 字符）",
+    "category": "tdk",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查 title 长度是否在 30-60 字符之间",
+    "fix_advice": "控制 title 长度在 30-60 字符之间",
+    "check_function": "check_title_length",
+    "enabled": true
+  },
+  {
+    "id": "description_missing",
+    "name": "Description 存在",
+    "category": "tdk",
+    "severity": "important",
+    "weight": "medium",
+    "description": "检查页面是否有 meta description",
+    "fix_advice": "为页面添加描述性的 meta description，长度建议 70-160 字符",
+    "check_function": "check_description_exists",
+    "enabled": true
+  },
+  {
+    "id": "description_duplicate",
+    "name": "Description 不重复",
+    "category": "tdk",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查不同页面是否有重复的 description",
+    "fix_advice": "每个页面写独特的 description，避免重复内容",
+    "check_function": "check_description_exists",
+    "enabled": true
+  },
+  {
+    "id": "description_length",
+    "name": "Description 长度合理（70-160 字符）",
+    "category": "tdk",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查 description 长度是否在 70-160 字符之间",
+    "fix_advice": "控制 description 长度在 70-160 字符之间",
+    "check_function": "check_description_length",
+    "enabled": true
+  },
+  {
+    "id": "keywords_missing",
+    "name": "Keywords 存在",
+    "category": "tdk",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查页面是否有 meta keywords",
+    "fix_advice": "虽然主流搜索引擎不太看重 keywords，但仍建议设置相关关键词",
+    "check_function": "check_keywords_exists",
+    "enabled": true
+  },
+  {
+    "id": "keywords_duplicate",
+    "name": "Keywords 不重复",
+    "category": "tdk",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查不同页面是否有重复的 keywords",
+    "fix_advice": "每个页面使用不同的关键词组合",
+    "check_function": "check_keywords_exists",
+    "enabled": true
+  },
+  {
+    "id": "title_brand",
+    "name": "Title 包含品牌名",
+    "category": "tdk",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查 title 是否包含品牌/站点名分隔符",
+    "fix_advice": "建议在 title 末尾添加品牌名，用 - 或 | 分隔",
+    "check_function": "check_title_brand",
+    "enabled": true
+  },
+  {
+    "id": "title_keyword_first",
+    "name": "主关键词前置",
+    "category": "tdk",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查主要关键词是否出现在 title 前半部分",
+    "fix_advice": "将最重要的关键词放在 title 靠前位置，提升权重",
+    "check_function": "check_title_keyword_first",
+    "enabled": true
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "id": "page_load_time",
+    "name": "页面加载时间 < 3 秒",
+    "category": "performance",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查页面加载时间是否超过 3 秒",
+    "fix_advice": "优化页面加载速度，可通过压缩图片、合并 CSS/JS、使用 CDN 等方式",
+    "check_function": "check_page_load_time",
+    "enabled": true
+  },
+  {
+    "id": "lighthouse_lcp",
+    "name": "LCP 最大内容绘制 < 2.5s",
+    "category": "performance",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查 LCP 最大内容绘制时间",
+    "fix_advice": "优化最大内容元素加载，可优化图片、延迟加载非关键资源等",
+    "check_function": "check_lighthouse_lcp",
+    "enabled": true
+  },
+  {
+    "id": "lighthouse_fid",
+    "name": "FID 首次输入延迟 < 100ms",
+    "category": "performance",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查 FID 首次输入延迟",
+    "fix_advice": "减少 JavaScript 执行时间，拆分长任务，优化主线程",
+    "check_function": "check_lighthouse_fid",
+    "enabled": true
+  },
+  {
+    "id": "lighthouse_cls",
+    "name": "CLS 累积布局偏移 < 0.1",
+    "category": "performance",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查 CLS 累积布局偏移",
+    "fix_advice": "为图片和视频设置尺寸属性，避免内容动态插入导致布局偏移",
+    "check_function": "check_lighthouse_cls",
+    "enabled": true
+  },
+  {
+    "id": "lighthouse_performance_score",
+    "name": "Lighthouse 性能评分",
+    "category": "performance",
+    "severity": "info",
+    "weight": "medium",
+    "description": "Lighthouse 性能评分",
+    "fix_advice": "全面优化页面性能，参考 Lighthouse 建议逐项改进",
+    "check_function": "check_lighthouse_performance_score",
+    "enabled": true
+  },
+  {
+    "id": "lighthouse_seo_score",
+    "name": "Lighthouse SEO 评分",
+    "category": "performance",
+    "severity": "info",
+    "weight": "medium",
+    "description": "Lighthouse SEO 评分",
+    "fix_advice": "根据 Lighthouse SEO 建议进行优化",
+    "check_function": "check_lighthouse_seo_score",
+    "enabled": true
+  },
+  {
+    "id": "page_size",
+    "name": "HTML 页面大小",
+    "category": "performance",
+    "severity": "info",
+    "weight": "low",
+    "description": "检查 HTML 页面大小是否合理",
+    "fix_advice": "精简 HTML 代码，移除不必要的注释和空白",
+    "check_function": "check_page_size",
+    "enabled": true
+  },
+  {
+    "id": "core_web_vitals",
+    "name": "Core Web Vitals 达标",
+    "category": "performance",
+    "severity": "important",
+    "weight": "high",
+    "description": "检查三项 Core Web Vitals 是否全部达标",
+    "fix_advice": "针对 LCP、FID、CLS 三项指标进行优化，全部达到 Google 建议标准",
+    "check_function": "check_core_web_vitals",
+    "enabled": true
+  }
+]
