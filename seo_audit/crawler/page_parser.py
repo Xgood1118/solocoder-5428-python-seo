@@ -26,7 +26,6 @@ class PageParser:
             soup = BeautifulSoup(html, "html.parser")
             self._extract_meta(soup, page)
             self._extract_headings(soup, page)
-            self._extract_text(soup, page)
             self._extract_links(soup, page, url)
             self._extract_images(soup, page, url)
             self._extract_canonical(soup, page)
@@ -35,6 +34,10 @@ class PageParser:
             self._extract_twitter_tags(soup, page)
             self._extract_json_ld(soup, page)
             self._extract_breadcrumb(soup, page)
+            self._extract_link_tags(soup, page, url)
+            self._extract_script_tags(soup, page, url)
+            self._extract_dom_stats(soup, page)
+            self._extract_text(soup, page)
             page.has_structured_data = len(page.json_ld) > 0
         except Exception:
             pass
@@ -99,11 +102,17 @@ class PageParser:
         for img in soup.find_all("img"):
             src = img.get("src", "")
             alt = img.get("alt", "")
+            srcset = img.get("srcset", "")
+            width = img.get("width", "")
+            height = img.get("height", "")
             full_src = urljoin(base_url, src) if src else ""
             page.images.append({
                 "src": full_src,
                 "alt": alt,
-                "has_alt": bool(alt and alt.strip())
+                "has_alt": bool(alt and alt.strip()),
+                "srcset": srcset,
+                "width": width,
+                "height": height,
             })
 
     def _extract_canonical(self, soup: BeautifulSoup, page: PageData):
@@ -157,3 +166,74 @@ class PageParser:
                 if isinstance(item, dict) and item.get("@type") == "BreadcrumbList":
                     page.has_breadcrumb = True
                     break
+
+    def _extract_link_tags(self, soup: BeautifulSoup, page: PageData, base_url: str):
+        for link in soup.find_all("link"):
+            rel = link.get("rel", "")
+            if isinstance(rel, list):
+                rel = " ".join(rel)
+            href = link.get("href", "")
+            full_href = urljoin(base_url, href) if href else ""
+            page.links.append({
+                "rel": rel,
+                "href": full_href,
+                "type": link.get("type", ""),
+                "as": link.get("as", ""),
+                "media": link.get("media", ""),
+                "sizes": link.get("sizes", ""),
+                "hreflang": link.get("hreflang", ""),
+                "title": link.get("title", ""),
+                "crossorigin": link.get("crossorigin", ""),
+            })
+
+    def _extract_script_tags(self, soup: BeautifulSoup, page: PageData, base_url: str):
+        base_domain = self.base_domain or urlparse(base_url).netloc.lower()
+        external_count = 0
+        for script in soup.find_all("script"):
+            src = script.get("src", "")
+            full_src = urljoin(base_url, src) if src else ""
+            is_external = False
+            if full_src:
+                try:
+                    parsed = urlparse(full_src)
+                    if parsed.netloc and parsed.netloc.lower() != base_domain:
+                        is_external = True
+                        external_count += 1
+                except Exception:
+                    pass
+            inline_len = len(script.string or "")
+            page.scripts.append({
+                "src": full_src,
+                "type": script.get("type", ""),
+                "async": script.get("async") is not None,
+                "defer": script.get("defer") is not None,
+                "is_external": is_external,
+                "inline_length": inline_len,
+                "charset": script.get("charset", ""),
+                "integrity": script.get("integrity", ""),
+                "crossorigin": script.get("crossorigin", ""),
+            })
+        page.external_scripts_count = external_count
+
+    def _extract_dom_stats(self, soup: BeautifulSoup, page: PageData):
+        try:
+            total_nodes = 0
+            max_depth = 0
+
+            def _walk(tag, depth):
+                nonlocal total_nodes, max_depth
+                if depth > max_depth:
+                    max_depth = depth
+                for child in tag.children:
+                    if child.name:
+                        total_nodes += 1
+                        _walk(child, depth + 1)
+
+            if soup.html:
+                total_nodes = 1
+                _walk(soup.html, 1)
+            page.dom_nodes = total_nodes
+            page.dom_depth = max_depth
+        except Exception:
+            page.dom_nodes = None
+            page.dom_depth = None

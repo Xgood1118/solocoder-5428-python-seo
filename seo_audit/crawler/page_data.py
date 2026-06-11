@@ -34,3 +34,9 @@ class PageData:
     content_type: str = ""
     final_url: str = ""
     lighthouse_data: Optional[dict] = None
+    dom_nodes: Optional[int] = None
+    dom_depth: Optional[int] = None
+    links: List[Dict] = field(default_factory=list)
+    scripts: List[Dict] = field(default_factory=list)
+    external_scripts_count: Optional[int] = None
+    response_time: Optional[float] = None
